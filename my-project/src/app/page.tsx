@@ -23,33 +23,31 @@ export default function Form2() {
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log(file, "<<<< ini file")
+    console.log(file, "<<<< ini file"); // Log file asli
     if (!file) return;
 
+    // Hitung ukuran file asli dalam MB
+    const originalSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+    console.log(originalSizeMB, "<<<< ini originalSizeMB"); // Log ukuran asli dalam MB
 
     convertToBase64(file, async function (err: any, data: any) {
-
       if (err) {
-        /// handle error
+        // handle error
         return;
       }
-      // resize the image like a boss
-      const { url, file } = await resizeImage(data);
 
-      console.log(data, "<<<< ini datanya")
-      setfiles({ url, doc: file })
+      // Resize the image
+      const { url, file: resizedFile } = await resizeImage(data);
 
+      // Hitung ukuran file yang sudah di-resize dalam MB
+      const resizedSizeMB = (resizedFile.size / (1024 * 1024)).toFixed(2);
+      console.log(resizedSizeMB, "<<<< ini resizedSizeMB"); // Log ukuran resized dalam MB
 
-
-      // finally we can send the data to a server as 
-      // just another field in a JSON payload
-
-
-
+      setfiles({ url, doc: resizedFile });
     });
-    console.log(files, "<<<< ini filesnya")
-
+    console.log(files, "<<<< ini filesnya");
   };
+
 
   useEffect(() => {
     console.log(files, "<<<< ini filesnya")
