@@ -4,7 +4,7 @@
 import { resizeImage } from "@/utils/resizeImage";
 // import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Form2() {
   // const [loading, setLoading] = useState(false); // State untuk loading
@@ -50,6 +50,11 @@ export default function Form2() {
     console.log(files, "<<<< ini filesnya")
 
   };
+
+  useEffect(() => {
+    console.log(files, "<<<< ini filesnya")
+  }, [files])
+
 
   //   try {
   //     setLoading(true); // Set loading ke true saat mulai upload
