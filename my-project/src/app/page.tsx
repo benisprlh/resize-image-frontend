@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Form2() {
-  const [loading, setLoading] = useState(false); // State untuk loading
+  // const [loading, setLoading] = useState(false); // State untuk loading
   function convertToBase64(file: any, cb: any) {
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -27,7 +27,7 @@ export default function Form2() {
     if (!file) return;
 
 
-    const data = convertToBase64(file, async function (err: any, data: any) {
+    convertToBase64(file, async function (err: any, data: any) {
 
       if (err) {
         /// handle error

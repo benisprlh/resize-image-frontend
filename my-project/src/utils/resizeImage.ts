@@ -3,7 +3,7 @@ export function resizeImage(base64Str: any, maxWidth = 400, maxHeight = 350) {
         let img = new Image();
         img.src = base64Str;
         img.onload = () => {
-            let canvas = document.createElement('canvas');
+            const canvas = document.createElement('canvas');
             const MAX_WIDTH = maxWidth;
             const MAX_HEIGHT = maxHeight;
             let width = img.width;
