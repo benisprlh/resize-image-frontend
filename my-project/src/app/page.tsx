@@ -84,7 +84,7 @@ export default function Form2() {
 
   return (
     <>
-      <div className='p-6 rounded-lg bg-white gap-x-4 border border-gray-300 max-md:col-span-3 max-lg:col-span-3 max-md:p-4'>
+      <div className='p-6 rounded-lg bg-white gap-x-4 border border-gray-300 max-md:col-span-3 max-lg:col-span-3 max-md:p-4 w-1/2'>
         <div className='flex items-center justify-center w-full h-full'>
           <label
             htmlFor='dropzone-file'
